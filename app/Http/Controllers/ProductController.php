@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,7 +13,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Products/Index');
+
+        $products = auth()->user()->products()->latest()->get();
+
+        $products = ProductResource::collection($products);
+
+        return Inertia::render('Products/Index', get_defined_vars());
     }
 
     /**
