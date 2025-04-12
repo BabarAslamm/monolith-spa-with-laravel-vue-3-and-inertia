@@ -19,7 +19,7 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'price' => $price = $this->price / 100,
-            'formatted_price' => '$'. $price,
+            'price_formatted' => '$'. $price,
             'brand' => $this->brand,
             'weight' => $this->weight,
             'category' => CategoryResource::make($this->category),
