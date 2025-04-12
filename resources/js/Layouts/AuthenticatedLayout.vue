@@ -39,6 +39,14 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+
+                                <NavLink
+                                    :href="route('products.index')"
+                                    :active="route().current('products')"
+                                >
+                                    Products
+                                </NavLink>
+
                             </div>
                         </div>
 
@@ -146,6 +154,14 @@ const showingNavigationDropdown = ref(false);
                         >
                             Dashboard
                         </ResponsiveNavLink>
+
+                        <ResponsiveNavLink
+                            :href="route('products.index')"
+                            :active="route().current('products')"
+                        >
+                            Products
+                        </ResponsiveNavLink>
+
                     </div>
 
                     <!-- Responsive Settings Options -->
