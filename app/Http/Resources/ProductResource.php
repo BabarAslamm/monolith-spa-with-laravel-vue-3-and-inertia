@@ -22,7 +22,7 @@ class ProductResource extends JsonResource
             'price_formatted' => '$'. $price,
             'brand' => $this->brand,
             'weight' => $this->weight,
-            'category' => CategoryResource::make($this->category),
+            'category' => $this->category ? CategoryResource::make($this->category) : null,
         ];
     }
 }
