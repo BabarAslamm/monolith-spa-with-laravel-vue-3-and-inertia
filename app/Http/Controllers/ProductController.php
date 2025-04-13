@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProductResource;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Resources\ProductResource;
+use App\Http\Resources\CategoryResource;
 
 class ProductController extends Controller
 {
@@ -26,7 +28,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::orderBy('name')->get();
+
+        $categories = CategoryResource::collection($categories);
+
+        return Inertia::render('Products/Create', get_defined_vars());;
     }
 
     /**
